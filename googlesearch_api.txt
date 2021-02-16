@@ -12,7 +12,7 @@ Scenario: Sample GET request
       | userId | 1 |
       | id | 1  |
       """
-    Then the response status should be "201"
+    Then the response status should be "200"
 
 
 --------------------
