@@ -1,0 +1,51 @@
+Feature: Google Search For Ducks
+
+  Background:
+    Given I have navigated to the "Google Search" page
+
+  @GOOGLE SEARCH
+  Scenario: Account Statements - Download Statement
+    And I click on "search box"
+	When I click on "search button"
+    Then the page should display the list of values
+
+  @GOOGLE SEARCH and click on link
+  Scenario: Account Statements - Download Statement
+    And I click on "search box"
+	When I click on "search button"
+	When I click on "first link"
+    Then the page should display the list of values
+	
+
+Step Defs:
+
+
+When(/^I click on "([^"]*)"$/) do |text|
+  fill_in('search box', :with => "ducks")
+end
+
+When(/^When I click on "([^"]*)"$/) do |text|
+  find(:id, 'search button').click
+end
+
+Then(/^the page should display the list of values$/) do
+   page.should have_xpath("//span[contains(.,'Ducks')]/../span[@class='value']", :text => 'Ducks')
+end
+
+----------------------------------------------
+
+When(/^I click on "([^"]*)"$/) do |text|
+  fill_in('search box', :with => "ducks")
+end
+
+When(/^When I click on "([^"]*)"$/) do |text|
+  find(:id, 'search button').click
+end
+
+When(/^When I click on "([^"]*)"$/) do |text|
+  find(:id, 'first link').click
+end
+
+Then(/^the page should display the list of values$/) do
+  page.should have_content("ducks")
+end
