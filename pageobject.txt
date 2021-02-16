@@ -1,0 +1,5 @@
+
+page objects:
+
+search box - by id or xpath
+search button - by id or xpath
